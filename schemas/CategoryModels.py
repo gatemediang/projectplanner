@@ -6,6 +6,8 @@ class RequestModel(BaseModel):
     title: str
     color: str
 
+class DeleteModel(BaseModel):
+    category_id: int 
 
 class ResponseModel(BaseModel):
     id: int
