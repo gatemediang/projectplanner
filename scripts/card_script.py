@@ -4,6 +4,8 @@ from models.Card import Card
 def getCardsByCategory(db, categoryID):
     return db.query(Card).filter(Card.category_id == categoryID).all()
 
+#AllCards = getCardsByCategory()
+
 
 def addCard(db, payload):
 

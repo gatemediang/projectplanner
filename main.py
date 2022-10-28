@@ -98,8 +98,8 @@ def deleteCard(card: CardModels.DeleteModel, db: Session=Depends(get_db)):
     return card_script.removeCard(db, card.card_id)
 
 @app.delete("/delete_project", status_code=200)
-def deleteProject(project: ProjectModels.DeleteModel, category: CategoryModels.DeleteModel, db: Session=Depends(get_db)):
-    return project_script.removeProject(db, project.project_id, category.category_id)
+def deleteProject(project: ProjectModels.DeleteModel, db: Session=Depends(get_db)):
+    return project_script.removeProject(db, project.project_id)
 
 
 # get categories with cards

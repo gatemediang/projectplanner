@@ -29,11 +29,10 @@ def getAllProjects(db, userID):
     return db.query(Project).filter(Project.user_id == userID).all()
 
 
-def removeProject(db, ProjectID, CategoryID ):
-    db.query(Category).filter(Category.project_id == ProjectID).all().delete()
-    db.query(Card).filter(Card.category_id == CategoryID).all().delete()
-    category_script.getCategoryByProject().delete()
+def removeProject(db, Project_id):
+    category_script.getCategoryByProject(db, Project_id).delete()
+    
 
-    db.query(Project).filter(Project.id == ProjectID).delete()
+    db.query(Project).filter(Project.id == Project_id).delete()
     db.commit()
     return True
